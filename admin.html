@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Portfolio</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h1>Admin Panel</h1>
+            </div>
+            <nav class="sidebar-nav">
+                <button class="nav-btn active" data-section="general">
+                    <i class="fas fa-cog"></i> Général
+                </button>
+                <button class="nav-btn" data-section="projects">
+                    <i class="fas fa-project-diagram"></i> Projets
+                </button>
+                <button class="nav-btn" data-section="skills">
+                    <i class="fas fa-star"></i> Compétences
+                </button>
+                <button class="nav-btn" data-section="social">
+                    <i class="fas fa-share-alt"></i> Réseaux
+                </button>
+                <button class="nav-btn" data-section="export">
+                    <i class="fas fa-download"></i> Export/Import
+                </button>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="index.html" class="btn btn-back">
+                    <i class="fas fa-arrow-left"></i> Voir le site
+                </a>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <!-- Section Général -->
+            <section class="section" id="general-section">
+                <h2>Informations Générales</h2>
+                <div class="form-group">
+                    <label>Nom</label>
+                    <input type="text" id="name" placeholder="Votre nom complet">
+                </div>
+                <div class="form-group">
+                    <label>Titre/Profession</label>
+                    <input type="text" id="title" placeholder="Ex: Développeur Full Stack">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="email" placeholder="votre@email.com">
+                </div>
+                <div class="form-group">
+                    <label>Téléphone</label>
+                    <input type="tel" id="phone" placeholder="+33 6 00 00 00 00">
+                </div>
+                <div class="form-group">
+                    <label>Description courte</label>
+                    <textarea id="shortBio" placeholder="Une description courte de vous" rows="4"></textarea>
+                </div>
+                <button class="btn btn-save" onclick="saveData()">Enregistrer</button>
+            </section>
+
+            <!-- Section Projets -->
+            <section class="section hidden" id="projects-section">
+                <h2>Mes Projets</h2>
+                <div id="projectsList"></div>
+                <button class="btn btn-add" onclick="addProject()">
+                    <i class="fas fa-plus"></i> Ajouter un projet
+                </button>
+            </section>
+
+            <!-- Section Compétences -->
+            <section class="section hidden" id="skills-section">
+                <h2>Compétences</h2>
+                <div class="skills-input-group">
+                    <input type="text" id="newSkill" placeholder="Nouvelle compétence" onkeypress="if(event.key==='Enter') addSkill()">
+                    <button class="btn btn-add" onclick="addSkill()">
+                        <i class="fas fa-plus"></i> Ajouter
+                    </button>
+                </div>
+                <div id="skillsList" class="skills-display"></div>
+            </section>
+
+            <!-- Section Réseaux Sociaux -->
+            <section class="section hidden" id="social-section">
+                <h2>Réseaux Sociaux</h2>
+                <div id="socialList"></div>
+                <button class="btn btn-add" onclick="addSocial()">
+                    <i class="fas fa-plus"></i> Ajouter un réseau
+                </button>
+            </section>
+
+            <!-- Section Export/Import -->
+            <section class="section hidden" id="export-section">
+                <h2>Export / Import</h2>
+                <div class="export-group">
+                    <h3>Exporter les données</h3>
+                    <p>Téléchargez vos données au format JSON</p>
+                    <button class="btn btn-export" onclick="exportData()">
+                        <i class="fas fa-download"></i> Télécharger JSON
+                    </button>
+                </div>
+                <div class="import-group">
+                    <h3>Importer les données</h3>
+                    <p>Chargez un fichier JSON précédemment exporté</p>
+                    <input type="file" id="importFile" accept=".json" onchange="importData()">
+                    <button class="btn btn-import" onclick="document.getElementById('importFile').click()">
+                        <i class="fas fa-upload"></i> Charger un fichier
+                    </button>
+                </div>
+                <div class="reset-group">
+                    <h3>Réinitialiser</h3>
+                    <p>Restaurer les données par défaut</p>
+                    <button class="btn btn-danger" onclick="resetData()">
+                        <i class="fas fa-redo"></i> Réinitialiser
+                    </button>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

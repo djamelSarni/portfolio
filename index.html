@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo" id="navName">Portfolio</div>
+                <ul class="nav-links">
+                    <li><a href="#hero" class="nav-link">Accueil</a></li>
+                    <li><a href="#projects" class="nav-link">Projets</a></li>
+                    <li><a href="#about" class="nav-link">À propos</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a href="admin.html" class="nav-link admin-link">Admin</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section Héros -->
+    <section id="hero" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 id="heroTitle">Bienvenue sur mon portfolio</h1>
+                <p id="heroSubtitle">Développeur Passionné</p>
+                <a href="#projects" class="btn btn-primary">Voir mes projets</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Projets -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>Mes Projets</h2>
+            <div class="projects-grid" id="projectsContainer">
+                <!-- Les projets seront chargés ici dynamiquement -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Section À Propos -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>À Propos</h2>
+            <div class="about-content">
+                <div class="about-text" id="aboutText">
+                    <p>Contenu à propos à charger...</p>
+                </div>
+                <div class="skills">
+                    <h3>Compétences</h3>
+                    <div class="skills-list" id="skillsList">
+                        <!-- Les compétences seront chargées ici dynamiquement -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contactez-moi</h2>
+            <div class="contact-content">
+                <p id="contactText">Contenu contact à charger...</p>
+                <div class="social-links" id="socialLinks">
+                    <!-- Les liens sociaux seront chargés ici dynamiquement -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Portfolio. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
