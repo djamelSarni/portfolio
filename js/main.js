@@ -1,5 +1,9 @@
 // Charger les données et remplir le portfolio
 document.addEventListener('DOMContentLoaded', () => {
+    // Charger les couleurs d'abord
+    if (typeof loadCustomColors === 'function') {
+        loadCustomColors();
+    }
     loadPortfolioData();
 });
 

@@ -4,6 +4,9 @@ let currentData = {};
 document.addEventListener('DOMContentLoaded', () => {
     loadAdminData();
     setupNavigation();
+    if (document.getElementById('colorsList')) {
+        displayColorControls();
+    }
 });
 
 function loadAdminData() {
@@ -230,14 +233,17 @@ function deleteSocial(index) {
 
 // ====== EXPORT / IMPORT ======
 function exportData() {
-    const dataStr = JSON.stringify(currentData, null, 2);
+    const dataStr = JSON.stringify({
+        portfolio: currentData,
+        colors: getColorsForExport()
+    }, null, 2);
     const dataBlob = new Blob([dataStr], { type: 'application/json' });
     const url = URL.createObjectURL(dataBlob);
     const link = document.createElement('a');
     link.href = url;
     link.download = `portfolio-backup-${new Date().toISOString().split('T')[0]}.json`;
     link.click();
-    showMessage('Données exportées avec succès!', 'success');
+    showMessage('Données et couleurs exportées avec succès!', 'success');
 }
 
 function importData() {
@@ -248,7 +254,18 @@ function importData() {
     reader.onload = (e) => {
         try {
             const imported = JSON.parse(e.target.result);
-            currentData = imported;
+            
+            // Vérifier si c'est un ancien format ou le nouveau
+            if (imported.portfolio) {
+                currentData = imported.portfolio;
+                if (imported.colors) {
+                    importColors(imported.colors);
+                }
+            } else {
+                // Ancien format (données uniquement)
+                currentData = imported;
+            }
+            
             localStorage.setItem('portfolioData', JSON.stringify(currentData));
             loadAdminData();
             showMessage('Données importées avec succès!', 'success');

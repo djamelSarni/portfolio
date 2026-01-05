@@ -125,6 +125,11 @@ body {
     color: var(--text-primary);
 }
 
+.section-desc {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
 /* Forms */
 .form-group {
     margin-bottom: 1.5rem;
@@ -203,6 +208,78 @@ body {
     border-radius: 4px;
     margin-bottom: 1.5rem;
     border-left: 4px solid var(--secondary-color);
+}
+
+/* Colors */
+.colors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.color-control {
+    background: var(--light-bg);
+    padding: 1.5rem;
+    border-radius: 4px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.color-control label {
+    display: block;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.color-input-group {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.color-input-group input[type="color"] {
+    width: 60px;
+    height: 40px;
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.color-input-group input[type="text"] {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+}
+
+.btn-reset-color {
+    background: var(--warning);
+    color: white;
+    border: none;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.btn-reset-color:hover {
+    background: #d97706;
+}
+
+.reset-all-colors {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 2px solid var(--border-color);
+}
+
+.reset-all-colors .btn {
+    width: 100%;
 }
 
 /* Export/Import Groups */
